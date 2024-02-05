@@ -26,6 +26,13 @@ func New(handler GetAllPostsHandler) *GetAllPostsApi {
 	}
 }
 
+// @Summary Get all posts
+// @ID get-all-post
+// @Accept  json
+// @Produce  json
+// @Param post body getAllPosts.GetAllPostsQuery true "Get All posts"
+// @Success 200 {array} model.Posts
+// @Router /posts [get]
 func (req *GetAllPostsApi) GetAllPosts(c echo.Context) error {
 	command := getAllPosts.GetAllPostsQuery{}
 	if err := c.Bind(&command); err != nil {

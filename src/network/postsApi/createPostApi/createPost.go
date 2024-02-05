@@ -26,6 +26,13 @@ func New(handler CreatePostHandler) *CreatePostApi {
 	}
 }
 
+// @Summary Create post
+// @ID create-post
+// @Accept  json
+// @Produce  json
+// @Param post body createPost.CreatePostCommand true "Create post"
+// @Success 200 {object} model.Posts
+// @Router /posts [post]
 func (req *CreatePostApi) CreatePost(c echo.Context) error {
 	command := createPost.CreatePostCommand{}
 	if err := c.Bind(&command); err != nil {

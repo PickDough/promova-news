@@ -27,6 +27,15 @@ func New(handler GetPostHandler) *GetPostApi {
 	}
 }
 
+// @Summary Get post
+// @ID get-post
+// @Accept  */*
+// @Produce  json
+// @Param id path int true "Post ID"
+// @Success 200 {object} model.Posts
+// @Failure 400 {object} echo.HTTPError
+// @Failure 404 {object} echo.HTTPError
+// @Router /posts/:id  [get]
 func (req *GetPostApi) GetPost(c echo.Context) error {
 	id, err := strconv.ParseInt(c.Param("id"), 10, 0)
 	if err != nil {

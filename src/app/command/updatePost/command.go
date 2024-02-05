@@ -1,7 +1,7 @@
 package updatePost
 
 type UpdatePostCommand struct {
-	Id      int
+	Id      int    `swaggerignore:"true"`
 	Title   string `json:"title"`
 	Content string `json:"content"`
 }

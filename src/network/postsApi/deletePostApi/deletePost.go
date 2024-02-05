@@ -26,6 +26,12 @@ func New(handler DeletePostHandler) *DeletePostApi {
 	}
 }
 
+// @Summary Delete post
+// @ID delete-post
+// @Accept  */*
+// @Param id path int true "Post ID"
+// @Success 200
+// @Router /posts/:id [delete]
 func (req *DeletePostApi) DeletePost(c echo.Context) error {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {

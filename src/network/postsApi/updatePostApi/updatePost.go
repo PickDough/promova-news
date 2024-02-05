@@ -27,6 +27,13 @@ func New(handler UpdatePostHandler) *UpdatePostApi {
 	}
 }
 
+// @Summary Update post
+// @ID update-post
+// @Accept  json
+// @Produce  json
+// @Param post body updatePost.UpdatePostCommand true "Update post"
+// @Success 200 {object} model.Posts
+// @Router /posts/:id [put]
 func (req *UpdatePostApi) UpdatePost(c echo.Context) error {
 	id, err := strconv.ParseInt(c.Param("id"), 10, 0)
 	if err != nil {
