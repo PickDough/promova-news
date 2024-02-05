@@ -1,0 +1,26 @@
+services:
+  api:
+    build:
+        dockerfile: ci/Dockerfile
+        context: .
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "8080:8080"
+  db:
+      image: postgres
+      hostname: postgres-host
+      restart: always
+      environment:
+        - POSTGRES_USER=promova
+        - POSTGRES_PASSWORD=promova
+        - POSTGRES_DB=news
+      ports:
+        - '5432:5432'
+      volumes:
+        - db:/var/lib/postgresql/data
+        - ./db:/docker-entrypoint-initdb.d/
+volumes:
+  db:
+    driver: local

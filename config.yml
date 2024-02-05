@@ -1,0 +1,4 @@
+db:
+  url: "postgresql://promova:promova@localhost:5432/news?sslmode=disable"
+http:
+  port: ":8080"
